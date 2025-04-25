@@ -14,7 +14,6 @@ echo \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-
 echo "2. Enabling and starting Docker service..."
 sudo systemctl enable docker
 sudo systemctl start docker
@@ -52,7 +51,7 @@ docker run --rm hello-world
 echo -e "\n=== Exercise 4 ==="
 echo "1. Running Ubuntu container interactively..."
 docker run -it --name ubuntu_niver ubuntu bash -c "echo 'Running commands in container...'; apt-get update && apt-get install -y curl; echo 'Installed curl:'; curl --version; exit"
-docker rm ubuntu_exercise
+docker rm ubuntu_niver
 
 # Exercise 5
 echo -e "\n=== Exercise 5 ==="
@@ -106,10 +105,10 @@ docker images
 # Exercise 9
 echo -e "\n=== Exercise 9 ==="
 echo "1. Running alpine and executing command..."
-docker run --rm alpine echo "hello from alpine"
+docker run alpine echo "hello from alpine"
 
 echo "2. Running busybox and executing command..."
-docker run --rm busybox uname -a
+docker run busybox uname -a
 
 echo "3. Listing all containers..."
 docker ps -a
